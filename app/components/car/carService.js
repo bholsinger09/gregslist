@@ -32,6 +32,8 @@ export default class CarService {
   getAllCars() {
     _carApi.get()
       //res.data is axios
+      //this is a callback function
+      //map is going to itterate array with d and replace with new car
       .then(res => {
         let data = res.data.data.map(d => new Car(d))
 
