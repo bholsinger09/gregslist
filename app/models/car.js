@@ -1,5 +1,6 @@
 export default class Car {
   constructor(data) {
+    this.id = data._id
     this.make = data.make
     this.model = data.model
     this.imgUrl = data.imgUrl
@@ -18,7 +19,7 @@ export default class Car {
             <h5 class="card-title">$${this.price}</h5>
             
             <p class="card-text">${this.description}</p>
-            <button class = "btn btn-primary">Bid</button>
+            <button class = "btn btn-primary" onclick= "app.controllers.carcontroller.bid('${this.id})">Bid</button>
           </div>
         </div>
       </div>
