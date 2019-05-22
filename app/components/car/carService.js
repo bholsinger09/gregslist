@@ -21,7 +21,7 @@ function _setState(propName, data) {
 //public
 
 export default class CarService {
-  addSubscriber(propName, Fn) {
+  addSubscriber(propName, fn) {
     _subscribers[propName].push(fn)
   }
 
@@ -36,6 +36,11 @@ export default class CarService {
       //map is going to itterate array with d and replace with new car
       .then(res => {
         let data = res.data.data.map(d => new Car(d))
+        //put it in set state
+        //cars is property 
+        //data is the data we just created
+        //data is an array of cars
+        _setState('cars', data)
 
       })
   }

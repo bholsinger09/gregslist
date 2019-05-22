@@ -8,6 +8,7 @@ export default class Car {
     this.description = data.description
   }
   get Template() {
+    //classes have get Template methods 
 
   }
 }
