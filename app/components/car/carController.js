@@ -6,7 +6,13 @@ let _carService = new CarService()
 function _drawCars() {
   let cars = _carService.Car
   //get copy of data for cars
-  console.log(cars)
+  let template = ''
+  cars.forEach(car => {
+    template += car.Template
+    //pulling from service and service grabs from model
+  })
+  document.getElementById('car').innerHTML = template
+
 
 }
 
