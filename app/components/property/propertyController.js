@@ -12,6 +12,32 @@ function _drawProperties() {
   document.getElementById('properties').innerHTML = template
 }
 
+function _drawForm() {
+  document.getElementById('properties').innerHTML = `
+   <form class = "row" onsubmit="app.controllers.propertiesController.addProperty(event)" >
+  <div class="form-row align-items-center">
+    <div class="col-auto my-1">
+      <label class="mr-sm-2" for="inlineFormCustomSelect">Number of rooms: </label>
+      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+        <option selected>Choose...</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+    </div>
+
+    <div class="col-auto my-1">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form> 
+  
+  
+  
+  
+  `
+}
+
 
 
 
@@ -30,7 +56,24 @@ export default class PropertiesController {
 
   }
 
+  addProperty(event) {
+    event.preventDefault();
+    let form = event.target
+    let propertyData = {
 
+
+      bedrooms: form.bedrooms.value,
+      bathrooms: form.bathrooms.value,
+      imgUrl: form.imgUrl.value,
+      levels: form.levels.value,
+      year: form.year.value,
+      price: form.price.value,
+      description: form.description.value,
+
+    }
+    _propertiesService.addProperties(propertyData)
+    form.reset()
+  }
 
 
 
