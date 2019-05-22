@@ -9,6 +9,9 @@ class App {
       carController: new CarController,
       propertiesController: new PropertiesController
     }
+
+
+
   }
 }
 

@@ -24,7 +24,7 @@ export default class PropertiesController {
   }
 
   renderProperties() {
-    _drawProperties()
+    _drawProperties();
 
   }
 

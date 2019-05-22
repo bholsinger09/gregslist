@@ -59,6 +59,7 @@ export default class CarController {
   }
 
   renderCars() {
+
     _drawCars();
     _drawForm();
   }
