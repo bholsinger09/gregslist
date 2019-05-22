@@ -5,50 +5,50 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>gregs list </title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/style.css">
+  <title>Gregs-List</title>
 </head>
 
 <body>
-  <main class="container">
-    <!-- there will be a form and below that one row and cards in the row-->
+  <header class="container">
     <div class="row">
-      <div class="col">
-        <form class="row" onsubmit="app.controller.carcontroller.addCar(event)">
-          <div class="form-group col-4">
-            <label for="make">Make</label>
-            <input type="text" class="form-control" id="make" name="make" placeholder="Enter Make" required>
-          </div>
-          <div class="form-group col-4">
-            <label for="model">Model</label>
-            <input type="text" class="form-control" id="model" name="model" placeholder="Enter Model" required>
-          </div>
-          <div class="form-group col-4">
-            <label for="year">Year</label>
-            <input type="number" class="form-control" id="year" name="year" placeholder="Enter Year" required>
-          </div>
-          <div class="form-group col-4">
-            <label for="price">Price</label>
-            <input type="number" class="form-control" id="price" name="price" placeholder="Enter Price" required>
-          </div>
-          <div class="form-group col-4">
-            <label for="description">Description</label>
-            <input type="text" class="form-control" id="description" name="description" placeholder="Enter Description">
-          </div>
-          <div class="form-group col-4">
-            <label for="imgUrl">Image</label>
-            <input type="url" class="form-control" id="imgUrl" name="imgUrl" placeholder="Enter Image Url" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-
+      <div class="col-12 text-center">
+        <h1>Gregs-List*</h1>
+      </div>
+      <div class="col-12">
+        <button onclick="app.controllers.carController.renderCars()">Cars</button>
+        <button onclick="app.controllers.propertyController.renderProperties()">Properties</button>
+        <button>Jobs</button>
       </div>
     </div>
-    <div class="row" id="car"></div>
-
-
+  </header>
+  <main class="container">
+    <div class="row">
+      <div class="col" id="form-content">
+      </div>
+    </div>
+    <div class="row" id="cars">
+    </div>
   </main>
+  <footer class="container">
+    <div class="row">
+      <div class="col text-center">
+        <p><small>*no affiliation to craigslist</small></p>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
   <script src="app/main.js" type="module"></script>

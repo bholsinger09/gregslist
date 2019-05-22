@@ -1,10 +1,11 @@
-import Car from "../../models/car.js";
-import { assertTSIndexedAccessType, assertModuleDeclaration } from "babel-types";
+import Car from "../../models/Car.js";
 
-//private
+//Private
 let _carApi = axios.create({
   baseURL: 'https://bcw-gregslist.herokuapp.com/api/cars'
 })
+
+
 let _state = {
   cars: []
 }
@@ -19,41 +20,49 @@ function _setState(propName, data) {
 }
 
 
-//public
-
+//Public
 export default class CarService {
   addSubscriber(propName, fn) {
     _subscribers[propName].push(fn)
   }
 
-  get Car() {
+  get Cars() {
     return _state.cars.map(c => new Car(c))
   }
 
   getAllCars() {
-
-    _carApi.get()
-      //res.data is axios
-      //this is a callback function
-      //map is going to itterate array with d and replace with new car
-      .then(res => {
-        let data = res.data.data.map(d => new Car(d))
-        //put it in set state
-        //cars is property 
-        //data is the data we just created
-        //data is an array of cars
+    _carApi.get() // get the cars
+      .then(response => {
+        let data = response.data.data.map(d => new Car(d))
         _setState('cars', data)
-
       })
-
+      .catch(err => {
+        console.error(err)
+      })
   }
+
   addCar(carData) {
     _carApi.post('', carData)
       .then(res => {
         this.getAllCars()
       })
-      .catch(err => {
-        console.log(err)
+      .catch(err => console.error(err))
+  }
+
+  bid(id) {
+    let carToBidOn = _state.cars.find(c => c._id == id)
+    carToBidOn.price++
+    _carApi.put(id, carToBidOn)
+      .then(res => {
+        this.getAllCars()
       })
   }
+
+  delete(id) {
+    _carApi.delete(id)
+      .then(res => {
+        this.getAllCars()
+      })
+  }
+
 }
