@@ -15,11 +15,11 @@ export default class Properties {
             <div class="card">
                 <img class="card-img-top" src="${this.imgUrl}" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">${this.bedrooms} - ${this.levels} - ${this.bathrooms} - ${this.year}</h5>
+                    <h5 class="card-title">bedrooms:${this.bedrooms}  levels:${this.levels}  bathrooms:${this.bathrooms}  year:${this.year}</h5>
                     <h5 class="card-title">$${this.price.toFixed(2)}</h5>
                     <p class="card-text">${this.description}</p>
                   
-                    <button class="btn btn-danger" onclick="app.controllers.carController.delete('${this._id}')">Delete</button>
+                    <button class="btn btn-danger" onclick="app.controllers.propertiesController.delete('${this._id}')">Delete</button>
                 </div>
             </div>
         </div>`

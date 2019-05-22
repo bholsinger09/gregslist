@@ -31,20 +31,18 @@ export default class PropertiesService {
   }
 
   getAllProperties() {
-    _propertiesApi.get() // get the cars
+    _propertiesApi.get() // get the Properties
       .then(response => {
         let data = response.data.data.map(d => new Properties(d))
-        _setState('cars', data)
+        _setState('properties', data)
       })
-      .catch(err => {
-        console.error(err)
-      })
+      .catch(err => console.error(err))
   }
 
   addProperties(propertiesData) {
     _propertiesApi.post('', propertiesData)
       .then(res => {
-        this.getAllProperties
+        this.getAllProperties()
       })
       .catch(err => console.error(err))
   }
@@ -53,7 +51,7 @@ export default class PropertiesService {
   delete(id) {
     _propertiesApi.delete(id)
       .then(res => {
-        this.getAllProperties
+        this.getAllProperties()
       })
   }
 

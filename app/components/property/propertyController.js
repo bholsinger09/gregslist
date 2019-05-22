@@ -1,10 +1,10 @@
-import PropertiesService from "./propertyService";
+import PropertiesService from "./propertyService.js";
 
 //Private
 let _propertiesService = new PropertiesService
 
 function _drawProperties() {
-  let properties = _propertiesService
+  let properties = _propertiesService.Properties
   let template = ''
   properties.forEach(property => {
     template += property.Template
