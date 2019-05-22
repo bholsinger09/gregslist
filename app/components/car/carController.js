@@ -13,7 +13,7 @@ function _drawCars() {
 }
 
 function _drawForm() {
-  document.getElementById('form-content').innerHTML = `<form class="row" onsubmit="app.controllers.carController.addCar(event)">
+  document.getElementById('cars-formCont').innerHTML = `<form class="row" onsubmit="app.controllers.carController.addCar(event)">
     <div class="form-group col-4">
         <label for="make">Make</label>
         <input type="text" class="form-control" id="make" name="make" placeholder="Enter Make" required>

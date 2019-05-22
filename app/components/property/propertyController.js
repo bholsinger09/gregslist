@@ -53,27 +53,28 @@ export default class PropertiesController {
 
   renderProperties() {
     _drawProperties();
+    //_drawForm();
 
   }
 
-  addProperty(event) {
-    event.preventDefault();
-    let form = event.target
-    let propertyData = {
+  // addProperty(event) {
+  //   event.preventDefault();
+  //   let form = event.target
+  //   let propertyData = {
 
 
-      bedrooms: form.bedrooms.value,
-      bathrooms: form.bathrooms.value,
-      imgUrl: form.imgUrl.value,
-      levels: form.levels.value,
-      year: form.year.value,
-      price: form.price.value,
-      description: form.description.value,
+  //     bedrooms: form.bedrooms.value,
+  //     bathrooms: form.bathrooms.value,
+  //     imgUrl: form.imgUrl.value,
+  //     levels: form.levels.value,
+  //     year: form.year.value,
+  //     price: form.price.value,
+  //     description: form.description.value,
 
-    }
-    _propertiesService.addProperties(propertyData)
-    form.reset()
-  }
+  //   }
+  //   _propertiesService.addProperties(propertyData)
+  //   form.reset()
+  // }
 
 
 
