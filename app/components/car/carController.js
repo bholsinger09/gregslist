@@ -52,7 +52,7 @@ function _drawForm() {
 export default class CarController {
   constructor() {
     //register subscribers
-    _carService.addSubscriber('cars', _drawCars)
+    _carService.addSubscriber('cars', _drawForm)
 
     //get data
     _carService.getAllCars()

@@ -13,6 +13,8 @@ function _drawProperties() {
 }
 
 
+
+
 //Public
 export default class PropertiesController {
   constructor() {
