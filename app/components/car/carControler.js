@@ -15,7 +15,9 @@ function _drawCars() {
 export default class CarController {
   constructor() {
     //register subscribers
+    _carService.addSubscriber('cars', _drawCars)
 
+    _carService.getAllCars()
 
     //get data
   }
