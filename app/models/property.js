@@ -11,8 +11,18 @@ export default class Properties {
   }
 
   get Template() {
-    return
-    `<!--there will be a template here -->`
+    return `<div class="col-3">
+            <div class="card">
+                <img class="card-img-top" src="${this.imgUrl}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">${this.bedrooms} - ${this.levels} - ${this.bathrooms} - ${this.year}</h5>
+                    <h5 class="card-title">$${this.price.toFixed(2)}</h5>
+                    <p class="card-text">${this.description}</p>
+                  
+                    <button class="btn btn-danger" onclick="app.controllers.carController.delete('${this._id}')">Delete</button>
+                </div>
+            </div>
+        </div>`
 
   }
 }
