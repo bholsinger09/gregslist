@@ -2,7 +2,7 @@ import Car from "../../models/car";
 
 //private
 let _carApi = axios.create({
-  baseURL: 'https://bcw-sandbox.herokuapp/api/cars
+  baseURL: 'https://bcw-sandbox.herokuapp/api/cars'
 })
 let _state = {
   cars: []
