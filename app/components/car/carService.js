@@ -1,4 +1,5 @@
 import Car from "../../models/car.js";
+import { assertTSIndexedAccessType, assertModuleDeclaration } from "babel-types";
 
 //private
 let _carApi = axios.create({
@@ -30,6 +31,7 @@ export default class CarService {
   }
 
   getAllCars() {
+
     _carApi.get()
       //res.data is axios
       //this is a callback function
@@ -42,6 +44,16 @@ export default class CarService {
         //data is an array of cars
         _setState('cars', data)
 
+      })
+
+  }
+  addCar(carData) {
+    _carApi.post('', carData)
+      .then(res => {
+        this.getAllCars()
+      })
+      .catch(err => {
+        console.log(err)
       })
   }
 }
