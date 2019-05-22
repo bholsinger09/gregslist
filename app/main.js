@@ -1,4 +1,4 @@
-import CarController from "./components/car/carController";
+import CarController from "./components/car/carController.js";
 
 
 class App {
