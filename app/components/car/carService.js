@@ -26,11 +26,15 @@ export default class CarService {
   }
 
   get Car() {
-    return _state.cars.map(c => new Car(c)
+    return _state.cars.map(c => new Car(c))
   }
 
   getAllCars() {
-    _carApi
+    _carApi.get()
+      //res.data is axios
+      .then(res => {
+        let data = res.data.data.map(d => new Car(d))
 
+      })
   }
 }
