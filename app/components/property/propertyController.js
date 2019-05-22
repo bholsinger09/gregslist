@@ -17,7 +17,7 @@ function _drawForm() {
    <form class = "row" onsubmit="app.controllers.propertiesController.addProperty(event)" >
   <div class="form-row align-items-center">
     <div class="col-auto my-1">
-      <label class="mr-sm-2" for="inlineFormCustomSelect">Number of rooms: </label>
+      <label class="mr-sm-2" for= "rooms">Number of rooms: </label>
       <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
         <option selected>Choose...</option>
         <option value="1">One</option>
@@ -45,7 +45,7 @@ function _drawForm() {
 export default class PropertiesController {
   constructor() {
     //register subscribers
-    _propertiesService.addSubscriber('properties', _drawProperties)
+    _propertiesService.addSubscriber('properties', _drawForm)
 
     //get data
     _propertiesService.getAllProperties()
@@ -53,28 +53,28 @@ export default class PropertiesController {
 
   renderProperties() {
     _drawProperties();
-    //_drawForm();
+    _drawForm();
 
   }
 
-  // addProperty(event) {
-  //   event.preventDefault();
-  //   let form = event.target
-  //   let propertyData = {
+  addProperty(event) {
+    event.preventDefault();
+    let form = event.target
+    let propertyData = {
 
 
-  //     bedrooms: form.bedrooms.value,
-  //     bathrooms: form.bathrooms.value,
-  //     imgUrl: form.imgUrl.value,
-  //     levels: form.levels.value,
-  //     year: form.year.value,
-  //     price: form.price.value,
-  //     description: form.description.value,
+      bedrooms: form.bedrooms.value,
+      bathrooms: form.bathrooms.value,
+      imgUrl: form.imgUrl.value,
+      levels: form.levels.value,
+      year: form.year.value,
+      price: form.price.value,
+      description: form.description.value,
 
-  //   }
-  //   _propertiesService.addProperties(propertyData)
-  //   form.reset()
-  // }
+    }
+    _propertiesService.addProperties(propertyData)
+    form.reset()
+  }
 
 
 
