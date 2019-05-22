@@ -53,7 +53,7 @@ export default class PropertiesController {
 
   renderProperties() {
     _drawProperties();
-    _drawForm();
+    //_drawForm();
 
   }
 
