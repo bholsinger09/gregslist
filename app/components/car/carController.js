@@ -40,6 +40,7 @@ export default class CarController {
 
     }
     _carService.addCar(carData)
+    form.reset()
 
   }
 }
