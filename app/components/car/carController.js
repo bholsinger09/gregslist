@@ -28,8 +28,8 @@ export default class CarController {
     //get data
   }
   addCar(event) {
-    event.preventDefault(){
-      console.log("you should write this at some point")
-    }
+    event.preventDefault()
+    console.log("you should write this at some point")
+
   }
 }
