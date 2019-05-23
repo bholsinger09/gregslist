@@ -12,26 +12,23 @@ function _drawProperties() {
   document.getElementById('properties').innerHTML = template
 }
 
+function _drawButton() {
+  document.getElementById('propertButton-container').innerHTML = `<button onclick="app.controllers.propertiesController.renderProperties()">Properties</button>
+  `
+}
+
 function _drawForm() {
   document.getElementById('properties').innerHTML = `
-   <form class = "row" onsubmit="app.controllers.propertiesController.addProperty(event)" >
-  <div class="form-row align-items-center">
-    <div class="col-auto my-1">
-      <label class="mr-sm-2" for= "rooms">Number of rooms: </label>
-      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-        <option selected>Choose...</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-    </div>
-
-    <div class="col-auto my-1">
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-  </div>
-</form> 
-  
+   
+  <form class="row" onsubmit="app.controllers.carController.addProperty(event)">
+     
+        <div class="form-group col-4">
+          <label for="number of rooms">Number of rooms: </label>
+          <input type="text" class="form-control" id="rooms" name="rooms" placeholder="enter number of rooms">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
   
   
   
@@ -45,7 +42,7 @@ function _drawForm() {
 export default class PropertiesController {
   constructor() {
     //register subscribers
-    _propertiesService.addSubscriber('properties', _drawForm)
+    _propertiesService.addSubscriber('properties', _drawButton)
 
     //get data
     _propertiesService.getAllProperties()
@@ -53,7 +50,7 @@ export default class PropertiesController {
 
   renderProperties() {
     _drawProperties();
-    //_drawForm();
+    _drawForm();
 
   }
 
@@ -64,12 +61,7 @@ export default class PropertiesController {
 
 
       bedrooms: form.bedrooms.value,
-      bathrooms: form.bathrooms.value,
-      imgUrl: form.imgUrl.value,
-      levels: form.levels.value,
-      year: form.year.value,
-      price: form.price.value,
-      description: form.description.value,
+
 
     }
     _propertiesService.addProperties(propertyData)

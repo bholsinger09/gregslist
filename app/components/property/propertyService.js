@@ -8,6 +8,7 @@ let _propertiesApi = axios.create({
 
 let _state = {
   properties: []
+
 }
 
 let _subscribers = {

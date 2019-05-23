@@ -18,11 +18,15 @@
       <div class="col-12 text-center">
         <h1>Gregs-List*</h1>
       </div>
-      <div class="col-12">
-        <button onclick="app.controllers.carController.renderCars()">Cars</button>
-        <button onclick="app.controllers.propertiesController.renderProperties()">Properties</button>
-        <button onclick="app.controllers.jobsController.renderJobs()">Jobs</button>
-      </div>
+      <div class="col-12" id="carButton-container"></div>
+      <div class="col-12" id="propertButton-container"></div>
+
+
+
+
+      <!--buttons will be inserted here by controllers-->
+      <button onclick="app.controllers.jobsController.renderJobs()">Jobs</button>
+    </div>
     </div>
   </header>
   <main class="container">

@@ -3,6 +3,11 @@ import CarService from "./CarService.js";
 //Private
 let _carService = new CarService()
 
+function _drawButton() {
+  document.getElementById('carButton-container').innerHTML = `<button onclick="app.controllers.carController.renderCars()">Cars</button>
+  `
+}
+
 function _drawCars() {
   let cars = _carService.Cars
   let template = ''
@@ -52,7 +57,7 @@ function _drawForm() {
 export default class CarController {
   constructor() {
     //register subscribers
-    _carService.addSubscriber('cars', _drawForm)
+    _carService.addSubscriber('cars', _drawButton)
 
     //get data
     _carService.getAllCars()
@@ -60,7 +65,7 @@ export default class CarController {
 
   renderCars() {
 
-    _drawCars();
+    //_drawCars();
     _drawForm();
   }
 
